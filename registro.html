@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+    crossorigin="anonymous">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Aprende a Tocar YÁ</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<!--incon font -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+    crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+<!-- Estilos  -->
+<link href="css/min.css" rel="stylesheet">
+  <style>
+   body {
+  height: 100px;
+  background-color: red; /* For browsers that do not support gradients */
+  background-image: linear-gradient(90deg, rgb(82, 255, 246), rgb(203, 89, 255)); /* Standard syntax (must be last) */
+}
+
+        body::-webkit-scrollbar {
+            width: 2px;
+            /*=> ancho del scroll*/
+
+        }
+
+        body::-webkit-scrollbar-track {
+            background-color: #ffffff;
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background-color: #00BCD4;
+            /*=> color del indicador del scroll */
+            border-radius: 6px;
+            /*=> bordes redondeados */
+            background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .3) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, .3) 75%, transparent 75%, transparent);
+        }
+  
+   
+  </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+        <div class="container">
+            
+            <div class="col-lg-6 col-4">
+                <a class="navbar-brand" href="plantilla pdf.html">inicio</a>
+            </div>
+            <div class=" col-lg-2 ">
+            </div>
+            <div class="col-lg-2 col-4 ">
+                  
+              </div>
+            <div class="col-lg-2 col-4">
+                <a href="login.html">Ingresar</a>
+            </div>
+            
+            </div>
+        
+    </nav>
+    <header class="masthead text-center text-white">
+            </div>
+            <div class="bg-circle-1 bg-circle"></div>
+            <div class="bg-circle-2 bg-circle"></div>
+            <div class="bg-circle-3 bg-circle"></div>
+  <div class="form-group">
+    <div class="container">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-12 col-lg-7 p-3 border border-white">
+
+          <form>
+            <div class="form-group row col-md-12">
+
+              <div class="form-group col-md-6">
+                <label for="Nombres">Nombres</label>
+                <input id="Nombre" class="form-control" placeholder="Nombre">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="Apellidos">Apellidos</label>
+                <input id="Apellido" type="apellidos" class="form-control" placeholder="Apellido">
+              </div>
+            </div>
+            <div class="form-group row col-md-12">
+              <div class="form-group col-md-6">
+                <label for="inputState">Estado Civil</label>
+                <select id="EstadoCivil" onchange="seleccionEstado()" class="form-control">
+                  <option selected>Casado</option>
+                  <option>Soltero</option>
+                  <option>Divorciado</option>
+                </select>
+              </div>
+              <div class=" form-group col-md-6">
+                <label>Seleccionar</label>
+                <span id="EstadoCivilSeleccionado"></span>
+              </div>
+            </div>
+            <div class="form-group row col-md-12">
+              <div class="form-group col-md-6">
+                <label for="fecha">Fecha de Nacimiento</label>
+                <input id="Fecha" type="date" class="form-control">
+              </div>
+            </div>
+            <div class=" text-center">
+              <button id="Guardar" onclick="myFunction()" type="button" class="btn btn-success">Guardar</button>
+              <button type="reset" class="btn btn-seconday">Limpiar</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-12 col-lg-7 p-3 border border-white">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Nombres y apellidos</th>
+              <th>Estado civil</th>
+              <th>Fecha de nacimiento</th>
+            </tr>
+          </thead>
+          <tbody id="ListaPersona">
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  </header>
+  <script>
+    // Clase: Abstracion de la realidad
+    // Objeto: Instacia de una clase
+    // Array: any
+    class Persona {
+      constructor(nombre, apellido, estadoCivil, fecha) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.estadoCivil = estadoCivil;
+        this.fecha = fecha;
+      }
+    }
+    //Capturado el elemento del boton
+    var btnGuardar = document.getElementById('Guardar');
+    //Establecimos el evento click sobre este elemento -> myFunction
+    // btnGuardar.addEventListener('click', myFunction);
+    var arrayPersonas = [];
+    //console.log(btnGuardar);
+    function myFunction() {
+      console.log('Estoy dentro');
+      var nombre = document.getElementById('Nombre').value;
+      var apellido = document.getElementById('Apellido').value;
+      var estadoCivil = document.getElementById('EstadoCivil').value;
+      var fecha = document.getElementById('Fecha').value;
+
+      var persona = new Persona(nombre, apellido, estadoCivil, fecha)
+      console.log('persona1');
+      console.log(persona);
+
+      arrayPersonas.push(persona)
+      console.log('arrayPersonas');
+      console.log(arrayPersonas);
+
+      var cadena = '';
+      console.log('Recorrido de objetos');
+      for (const ObjPersona of arrayPersonas) {
+        cadena += `
+                    <tr>
+                        <td>` + ObjPersona.nombre + ` ` + ObjPersona.apellido + `</td>
+                        <td>` + ObjPersona.estadoCivil + `</td>
+                        <td>` + ObjPersona.fecha + `</td>
+                    </tr>
+                    `;
+      }
+      var listaPersona = document.getElementById('ListaPersona');
+      listaPersona.innerHTML = cadena
+    }
+
+
+    function seleccionEstado() {
+      var estadoCivil = document.getElementById('EstadoCivil').value;
+      var estadoCivilSeleccionado = document.getElementById('EstadoCivilSeleccionado');
+      estadoCivilSeleccionado.innerHTML = estadoCivil
+    }
+
+  </script>
+</body>
+
+
+</html>
